@@ -1,0 +1,12 @@
+﻿@model CategoryViewModel
+
+<h2>EditImage</h2>
+
+<form enctype="multipart/form-data" method="post">
+	<input type="hidden" asp-for="CategoryId" />
+	<label asp-for="CategoryName"></label>
+	<img src="@Url.Action("Image", "Categories", new {id = Model.CategoryId})" />
+	<input asp-for="Picture" type="file">
+	<span asp-validation-for="Picture"></span>
+	<input type="submit" name="save" />
+</form>

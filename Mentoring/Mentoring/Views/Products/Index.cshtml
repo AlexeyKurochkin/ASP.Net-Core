@@ -1,0 +1,46 @@
+﻿@model System.Collections.Generic.List<Mentoring.ViewModels.ProductsViewModel>
+
+<table class="table">
+	<div class=row>
+		<a class="btn btn-primary" asp-action="CreateProduct">Create product</a>
+	</div>
+	<thead>
+		@{ ProductsViewModel inst = Model.FirstOrDefault(); }
+		<tr>
+			<th scope="col">Category</th>
+			<th scope="col">Category Id</th>
+			<th scope="col">Discontinued</th>
+			<th scope="col">Product Id</th>
+			<th scope="col">Product name</th>
+			<th scope="col">Quantity per Unit</th>
+			<th scope="col">Reorder Level</th>
+			<th scope="col">Supplier</th>
+			<th scope="col">Supplier Id</th>
+			<th scope="col">Unit Price</th>
+			<th scope="col">Units on Order</th>
+			<th scope="col">Units in Stock</th>
+		</tr>
+	</thead>
+	<tbody>
+		@{
+			foreach (ProductsViewModel homeProductsViewModel in Model)
+			{
+				<tr>
+					<td>@homeProductsViewModel.Category</td>
+					<td>@homeProductsViewModel.CategoryId</td>
+					<td>@homeProductsViewModel.Discontinued</td>
+					<td>@homeProductsViewModel.ProductId</td>
+					<td>@homeProductsViewModel.ProductName</td>
+					<td>@homeProductsViewModel.QuantityPerUnit</td>
+					<td>@homeProductsViewModel.ReorderLevel</td>
+					<td>@homeProductsViewModel.Supplier</td>
+					<td>@homeProductsViewModel.SupplierId</td>
+					<td>@homeProductsViewModel.UnitPrice</td>
+					<td>@homeProductsViewModel.UnitsOnOrder</td>
+					<td>@homeProductsViewModel.UnitsInStock</td>
+					<td><a class="btn" asp-action="EditProduct" asp-route-id="@homeProductsViewModel.ProductId">Edit</a></td>
+				</tr>
+			}
+		}
+	</tbody>
+</table>

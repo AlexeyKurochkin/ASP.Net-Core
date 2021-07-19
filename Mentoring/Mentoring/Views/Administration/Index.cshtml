@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+
+@{
+	ViewData["Title"] = "List of users";
+}
+
+<h2>List of users</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>User name</th>
+			<th>Email</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.UserName</td>
+				<td>@item.Email</td>
+			</tr>
+		}
+	</tbody>
+</table>

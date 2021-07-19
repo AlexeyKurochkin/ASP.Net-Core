@@ -1,0 +1,23 @@
+﻿@using Mentoring.Helpers
+@model System.Collections.Generic.IEnumerable<CategoryViewModel>
+
+
+<ul>
+	@{
+		foreach (CategoryViewModel category in Model)
+		{
+			<li>
+				<h2>@category.CategoryName</h2>
+				<p>@category.Description</p>
+				@Html.NorthwindImageLink(category.CategoryId.ToString(), "tex")
+				<a asp-action = "Image" asp-route-id="@category.CategoryId">Image</a>
+				<a asp-action = "EditImage" asp-route-id="@category.CategoryId">Edit image</a>
+			</li>
+		}
+	}
+</ul>
+
+@section Footer
+{
+	<p>User can’t edit categories</p>
+}

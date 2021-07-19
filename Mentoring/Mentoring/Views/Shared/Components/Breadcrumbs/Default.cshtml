@@ -1,0 +1,10 @@
+﻿@model Breadcrumb
+
+<ol class="breadcrumb">
+	<li><a asp-controller="Home" asp-action="Index">Home</a></li>
+	<li><a asp-controller="@Model.ControllerName" asp-action="Index">@Model.ControllerName</a></li>
+	@if (@Model.ActionName != "Index")
+	{
+		<li><a asp-controller="@Model.ControllerName" asp-action="@Model.ActionName">@Model.ActionName</a></li>
+	}
+</ol>
